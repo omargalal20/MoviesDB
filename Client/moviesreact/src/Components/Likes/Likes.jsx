@@ -28,9 +28,9 @@ const LikesPage = props => {
             <Card.Header className = 'text-center w-100'>Liked Movies</Card.Header>
             <div className = 'w-100 d-flex flex-row justify-content-center align-items-center flex-wrap'>
                 {
-                    (fetched === true ) && likedMovies.map((movie, i) => (
+                    (fetched === true ) && (likedMovies.length !== 0) ? likedMovies.map((movie, i) => (
                         <MovieCard key = {i} user = {{...props.user}} movie = {{...movie}} page = 'Likes' setModalShow = {setModalShow} setMovieInfo = {setMovieInfo}></MovieCard>
-                    ))
+                    )) : <div>No Movies Were Added To Liked List</div>
                 }
             </div>
         </Card>

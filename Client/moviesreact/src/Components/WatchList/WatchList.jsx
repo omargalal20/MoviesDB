@@ -28,9 +28,9 @@ const WatchListPage = props => {
             <Card.Header className = 'text-center w-100'>Watch List Movies</Card.Header>
             <div className = 'w-100 d-flex flex-row justify-content-center align-items-center flex-wrap'>
                 {
-                    (fetched === true ) && watchListMovies.map((movie, i) => (
+                    (fetched === true ) && (watchListMovies.length !== 0) ? watchListMovies.map((movie, i) => (
                         <MovieCard key = {i} user = {{...props.user}} movie = {{...movie}} page = 'WatchList' setModalShow = {setModalShow} setMovieInfo = {setMovieInfo}></MovieCard>
-                    ))
+                    )) : <div>No Movies Were Added To The Watch List</div>
                 }
             </div>
         </Card>

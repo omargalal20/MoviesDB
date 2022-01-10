@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import MovieCard from '../MovieCard'
-import MovieInfoModal from '../MovieInfoModal';
+import MovieInfoModal from '../MovieInfoModal'
+import Spinner from 'react-bootstrap/Spinner'
 
 const HomePage = props => {
     const [nowShowingMovies, setNowShowingMovies] = useState([]);
@@ -26,9 +27,9 @@ const HomePage = props => {
             <Card.Header className = 'text-center w-100'>Now Showing</Card.Header>
             <div className = 'w-100 d-flex flex-row justify-content-center align-items-center flex-wrap'>
                 {
-                    (fetched === true ) && nowShowingMovies.map((movie, i) => (
+                    (fetched === true ) ? nowShowingMovies.map((movie, i) => (
                         <MovieCard key = {i} user = {{...props.user}} movie = {{...movie}} page = 'Home' setModalShow = {setModalShow} setMovieInfo = {setMovieInfo}></MovieCard>
-                    ))
+                    )) : <Spinner animation="border" variant="success" />
                 }
             </div>
         </Card>
