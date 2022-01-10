@@ -15,10 +15,10 @@ router.route('/search').post(async(req,res) => {
     await axios.get(`https://api-gate2.movieglu.com/filmLiveSearch/?query=${searchString}&n=5`,{
         method: "GET",
         headers: {
-            "api-version": process.env.api-version,
+            "api-version": process.env.apiversion,
             "Authorization": process.env.Authorization,
             "client": process.env.client,
-            "x-api-key": process.env.x-api-key,
+            "x-api-key": process.env.xapikey,
             "device-datetime": `${date.toISOString()}`,
             "territory": process.env.territory,
             "geolocation": process.env.geolocation
@@ -33,10 +33,10 @@ router.route('/nowShowing').get(async(req,res) => {
     await axios.get('https://api-gate2.movieglu.com/filmsNowShowing/?n=10',{
         method: "GET",
         headers: {
-            "api-version": process.env.api-version,
+            "api-version": process.env.apiversion,
             "Authorization": process.env.Authorization,
             "client": process.env.client,
-            "x-api-key": process.env.x-api-key,
+            "x-api-key": process.env.xapikey,
             "device-datetime": `${date.toISOString()}`,
             "territory": process.env.territory,
             "geolocation": process.env.geolocation
